@@ -57,18 +57,16 @@ public class FLAMES {
         for (char c : this.All) {
             count[c]++;
         }
-        // Step 2: Identify characters with odd occurrences
         char[] temp = new char[this.All.length]; // Temporary array for valid characters
         int uniqueIndex = 0;
     
         for (char c : this.All) {
-            if (count[c] % 2 != 0) { // Odd occurrence
+            if (count[c] % 2 != 0) { 
                 temp[uniqueIndex++] = c;
-                count[c] = 0; // Reset to prevent duplicates
+                count[c] = 0; 
             }
         }
     
-        // Step 3: Create a final array with the exact size
         this.result = new char[uniqueIndex];
         for (int i = 0; i < uniqueIndex; i++) {
             this.result[i] = temp[i];    
@@ -84,20 +82,13 @@ public class FLAMES {
         int remainingCount = this.result.length;
 
         while (flamesLength > 1) {
-            // Calculate the index to cancel
             currentIndex = (currentIndex + remainingCount - 1) % flamesLength;
-
-            // Cancel the element by shifting left
             for (int i = currentIndex; i < flamesLength - 1; i++) {
                 flames[i] = flames[i + 1];
             }
-
-            // Set the last element to a default value (e.g., '\0')
             flames[flamesLength - 1] = '\0';
-
             flamesLength--; // Reduce the size of the array
         }
-
         // Output the result
         char relationship = flames[0];
         
