@@ -1,5 +1,3 @@
-package January;
-
 import java.util.*;
 import java.util.Arrays;
 
